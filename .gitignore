@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+*.egg-info/
+.DS_Store
+Thumbs.db
+
+# rendered videos (the trained weights in models/ ARE committed)
+*.mp4
+recordings/
