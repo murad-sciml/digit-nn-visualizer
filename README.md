@@ -53,11 +53,7 @@ Tip: draw one large digit that fills most of the box, like a printed number.
 
 ## How it works
 
-```
-drawing (320×320) ─► crop ─► scale to fill 32×32 ─► binarise + thicken ─► 4×4 block average ─► 8×8
-                                                                                           │
-             prediction ◄─ softmax(10) ◄─ ReLU(16) ◄─ ReLU(24) ◄─ ReLU(32) ◄─ 64 inputs ◄───┘
-```
+  ![How it works](assets/how_it_works.png)
 
 1. **Dataset.** The model is trained on scikit-learn's [handwritten digits](https://scikit-learn.org/stable/datasets/toy_dataset.html#optical-recognition-of-handwritten-digits-dataset) (1,797 images, 8×8, from the UCI *optdigits* set).
 2. **Preprocessing (`nn_viz/preprocess.py`).** This repeats how that dataset was made, so your drawing looks like the training data. Each digit is scaled so it fills the full height of a 32×32 bitmap. Thin strokes are thickened until about 27% of the grid is ink, which matches the dataset. Then each 4×4 block is averaged into one of the 64 inputs.
